@@ -1,0 +1,124 @@
+---
+title: Docker 、nginx 、Mysql学习记录
+date: 2019-06-11 01:00:22
+tags:
+---
+@[TOC]
+## Docker  学习记录
+
+Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器->Windows日志->系统中，Hyper-V-VmSwitch 一直提示 类似"VMSwitch driver due to error"
+
+* [Hyper-V管理器无法打开虚拟交换机管理，别人的方法，但无济于事](https://www.cnblogs.com/GeDiao/p/7975667.html)
+
+别人都是说去在windows功能上打开Hyper-v即可，而我开启了一直不行，我这个主要是Hyper-V问题，导致Docker服务一直无法正常启动。微软的论坛也找了，没人能解决，说重装系统？这只能终极解决方案。下面这个链接，我也回答了一下。
+* [hyperv 无法打开虚拟交换机管理器，报错“尝试检索虚拟交换机列表时出错](https://social.msdn.microsoft.com/Forums/healthvault/zh-CN/cf5c267b-1ca0-40dd-9959-5ecb3475a06c/hyperv?forum=window10app)
+
+**后来找到解决办法，在设置-更新和安全-Windows预览体验计划，先去官网申请，申请后，升级系统，他会帮我修复Hyper-V.**
+
+## Docker 相关文档
+[Docker最全教程——从理论到实战(一)](https://www.cnblogs.com/codelove/p/10030439.html)
+
+[八个Docker的真实应用场景]( http://dockone.io/article/126)
+
+[docker pull很慢解决办法、配置阿里镜像](https://blog.csdn.net/julien71/article/details/79760919)
+
+[ASP.NET Core开发Docker部署](https://www.cnblogs.com/zxtceq/p/7403953.html)
+
+Docker 中的三个概念，镜像（Image)、容器（Container)、仓库（Repository）
+
+一个Image可有多个Container，我们可以把Image发布至Dokcer提供的仓库中，提供给他人使用。
+
+
+## Dockerfile 文件规则
+
+~~~
+
+~~~
+
+## Docker  命令行  
+* Command-Line Interfaces [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
+~~~
+docker images  # 查看所有镜像
+
+docker ps -a #所有正在运行的容器Container
+docker ps -l #最后启动的容器
+
+docker rm 容器id   #删除容器
+ocker rm $(docker ps -q -a) #一次性删除所有的容器
+
+docker rmi 镜像id/镜像名称  #删除镜像
+docker rmi $(docker images -q) #一次性删除所有的镜像。
+
+docker build -t igeekfan/demo .  #运行构建命令,构建Docker 镜像。 
+
+docker run 镜像 #运行
+docker run -it -p 5000:80 igeekfan/demo
+#5000是运行后，docker对外的端口，80是这个服务对外的端口，其中Dockerfile 存在语句EXPOSE 80
+docker run -d -p 5000:80 igeekfan/demo 
+-d 参数后台运行
+
+docker start 容器id
+docker restart 容器id
+docker stop 容器id #终止容器。
+docker logs $CONTAINER_ID ##在container外面查看它的输出 
+docker attach $CONTAINER_ID ##连接上容器实时查看：
+
+docker pull microsoft/dotnet  #单独安装某一镜像
+
+docker save 镜像id > 文件 #持久化镜像
+docker load < 文件
+~~~
+我们如果想将Docker 放置到其他机器运行，很简单。
+~~~
+#直接保存镜像，然后复制镜像到其他机器，然后使用docker 命令load 既可。
+
+docker save igeekfan/demo > demo.tar
+
+#然后加载命令
+
+docker load < demo.tar
+~~~
+
+## nginx 相关命令
+
+ubuntu 进入root 权限，不用每次加sudo
+~~~
+sudo su 
+#然后输入root 密码
+~~~
+
+配置nginx
+~~~
+vim /etc/nginx/nginx.conf
+~~~
+
+nginx 验证配置是否成功
+~~~
+nginx -t 
+~~~
+
+重新加载nginx配置项
+~~~
+nginx -s reload
+~~~
+
+状态、重启、停止、启动
+~~~
+service nginx status 
+service nginx restart
+service nginx stop 
+service nginx start
+~~~
+
+
+- [Ubuntu18.04更换镜像源](https://blog.csdn.net/jasonzhoujx/article/details/80360459)
+- [ubuntu16.04 安装mysql5.7并设置root远程访问](https://www.jianshu.com/p/73fb45b9da73)
+
+
+navicat连接MySQL8+时出现2059错误解决方法
+~~~
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+~~~
+
+
+[Docker最全教程之MySQL容器化 （二十五）](https://mp.weixin.qq.com/s?__biz=MzU0Mzk1OTU2Mg==&mid=2247484623&idx=1&sn=b235bb5222ea3391f66f0be0812df49c&chksm=fb023baacc75b2bc8d45b81b9b99a3343ebc877802840a3963d14fc49ae0eda98651f1a9f86e&mpshare=1&scene=23&srcid=06101AKYKpn48TwJXL7VLQ17#rd)

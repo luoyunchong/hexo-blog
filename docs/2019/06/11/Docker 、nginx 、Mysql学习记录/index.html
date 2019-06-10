@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Docker 、nginx 、Mysql学习记录 | 天上有木月博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="@[TOC] Docker  学习记录Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器-&amp;gt;Windows日志-&amp;gt;系统中，Hyper-V-VmSwitch 一直提示 类似”VMSwitch driver due to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 、nginx 、Mysql学习记录">
+<meta property="og:url" content="https://luoyunchong.github.io/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/index.html">
+<meta property="og:site_name" content="天上有木月博客">
+<meta property="og:description" content="@[TOC] Docker  学习记录Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器-&amp;gt;Windows日志-&amp;gt;系统中，Hyper-V-VmSwitch 一直提示 类似”VMSwitch driver due to">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-10T17:01:09.713Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker 、nginx 、Mysql学习记录">
+<meta name="twitter:description" content="@[TOC] Docker  学习记录Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器-&amp;gt;Windows日志-&amp;gt;系统中，Hyper-V-VmSwitch 一直提示 类似”VMSwitch driver due to">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="天上有木月博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/hexo-blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">天上有木月博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luoyunchong.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Docker 、nginx 、Mysql学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/" class="article-date">
+  <time datetime="2019-06-10T17:00:22.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker 、nginx 、Mysql学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>@[TOC]</p>
+<h2 id="Docker-学习记录"><a href="#Docker-学习记录" class="headerlink" title="Docker  学习记录"></a>Docker  学习记录</h2><p>Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器-&gt;Windows日志-&gt;系统中，Hyper-V-VmSwitch 一直提示 类似”VMSwitch driver due to error”</p>
+<ul>
+<li><a href="https://www.cnblogs.com/GeDiao/p/7975667.html" target="_blank" rel="noopener">Hyper-V管理器无法打开虚拟交换机管理，别人的方法，但无济于事</a></li>
+</ul>
+<p>别人都是说去在windows功能上打开Hyper-v即可，而我开启了一直不行，我这个主要是Hyper-V问题，导致Docker服务一直无法正常启动。微软的论坛也找了，没人能解决，说重装系统？这只能终极解决方案。下面这个链接，我也回答了一下。</p>
+<ul>
+<li><a href="https://social.msdn.microsoft.com/Forums/healthvault/zh-CN/cf5c267b-1ca0-40dd-9959-5ecb3475a06c/hyperv?forum=window10app" target="_blank" rel="noopener">hyperv 无法打开虚拟交换机管理器，报错“尝试检索虚拟交换机列表时出错</a></li>
+</ul>
+<p><strong>后来找到解决办法，在设置-更新和安全-Windows预览体验计划，先去官网申请，申请后，升级系统，他会帮我修复Hyper-V.</strong></p>
+<h2 id="Docker-相关文档"><a href="#Docker-相关文档" class="headerlink" title="Docker 相关文档"></a>Docker 相关文档</h2><p><a href="https://www.cnblogs.com/codelove/p/10030439.html" target="_blank" rel="noopener">Docker最全教程——从理论到实战(一)</a></p>
+<p><a href="http://dockone.io/article/126" target="_blank" rel="noopener">八个Docker的真实应用场景</a></p>
+<p><a href="https://blog.csdn.net/julien71/article/details/79760919" target="_blank" rel="noopener">docker pull很慢解决办法、配置阿里镜像</a></p>
+<p><a href="https://www.cnblogs.com/zxtceq/p/7403953.html" target="_blank" rel="noopener">ASP.NET Core开发Docker部署</a></p>
+<p>Docker 中的三个概念，镜像（Image)、容器（Container)、仓库（Repository）</p>
+<p>一个Image可有多个Container，我们可以把Image发布至Dokcer提供的仓库中，提供给他人使用。</p>
+<h2 id="Dockerfile-文件规则"><a href="#Dockerfile-文件规则" class="headerlink" title="Dockerfile 文件规则"></a>Dockerfile 文件规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Docker-命令行"><a href="#Docker-命令行" class="headerlink" title="Docker  命令行"></a>Docker  命令行</h2><ul>
+<li>Command-Line Interfaces <a href="https://docs.docker.com/engine/reference/run/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/run/</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">docker images  # 查看所有镜像</span><br><span class="line"></span><br><span class="line">docker ps -a #所有正在运行的容器Container</span><br><span class="line">docker ps -l #最后启动的容器</span><br><span class="line"></span><br><span class="line">docker rm 容器id   #删除容器</span><br><span class="line">ocker rm $(docker ps -q -a) #一次性删除所有的容器</span><br><span class="line"></span><br><span class="line">docker rmi 镜像id/镜像名称  #删除镜像</span><br><span class="line">docker rmi $(docker images -q) #一次性删除所有的镜像。</span><br><span class="line"></span><br><span class="line">docker build -t igeekfan/demo .  #运行构建命令,构建Docker 镜像。 </span><br><span class="line"></span><br><span class="line">docker run 镜像 #运行</span><br><span class="line">docker run -it -p 5000:80 igeekfan/demo</span><br><span class="line">#5000是运行后，docker对外的端口，80是这个服务对外的端口，其中Dockerfile 存在语句EXPOSE 80</span><br><span class="line">docker run -d -p 5000:80 igeekfan/demo </span><br><span class="line">-d 参数后台运行</span><br><span class="line"></span><br><span class="line">docker start 容器id</span><br><span class="line">docker restart 容器id</span><br><span class="line">docker stop 容器id #终止容器。</span><br><span class="line">docker logs $CONTAINER_ID ##在container外面查看它的输出 </span><br><span class="line">docker attach $CONTAINER_ID ##连接上容器实时查看：</span><br><span class="line"></span><br><span class="line">docker pull microsoft/dotnet  #单独安装某一镜像</span><br><span class="line"></span><br><span class="line">docker save 镜像id &gt; 文件 #持久化镜像</span><br><span class="line">docker load &lt; 文件</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>我们如果想将Docker 放置到其他机器运行，很简单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#直接保存镜像，然后复制镜像到其他机器，然后使用docker 命令load 既可。</span><br><span class="line"></span><br><span class="line">docker save igeekfan/demo &gt; demo.tar</span><br><span class="line"></span><br><span class="line">#然后加载命令</span><br><span class="line"></span><br><span class="line">docker load &lt; demo.tar</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx-相关命令"><a href="#nginx-相关命令" class="headerlink" title="nginx 相关命令"></a>nginx 相关命令</h2><p>ubuntu 进入root 权限，不用每次加sudo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su </span><br><span class="line">#然后输入root 密码</span><br></pre></td></tr></table></figure>
+
+<p>配置nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>nginx 验证配置是否成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>重新加载nginx配置项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>状态、重启、停止、启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">service nginx status </span><br><span class="line">service nginx restart</span><br><span class="line">service nginx stop </span><br><span class="line">service nginx start</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://blog.csdn.net/jasonzhoujx/article/details/80360459" target="_blank" rel="noopener">Ubuntu18.04更换镜像源</a></li>
+<li><a href="https://www.jianshu.com/p/73fb45b9da73" target="_blank" rel="noopener">ubuntu16.04 安装mysql5.7并设置root远程访问</a></li>
+</ul>
+<p>navicat连接MySQL8+时出现2059错误解决方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;password&apos;;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU0Mzk1OTU2Mg==&mid=2247484623&idx=1&sn=b235bb5222ea3391f66f0be0812df49c&chksm=fb023baacc75b2bc8d45b81b9b99a3343ebc877802840a3963d14fc49ae0eda98651f1a9f86e&mpshare=1&scene=23&srcid=06101AKYKpn48TwJXL7VLQ17#rd" target="_blank" rel="noopener">Docker最全教程之MySQL容器化 （二十五）</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luoyunchong.github.io/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/" data-id="cjwqmlxzg00011ovdisnllch6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">.NET Framework 下的RazorEngine代码生成原理介绍</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/hexo-blog/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/">Docker 、nginx 、Mysql学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/">.NET Framework 下的RazorEngine代码生成原理介绍</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker/">ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/1.hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 igeekfan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.css">
+  <script src="/hexo-blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

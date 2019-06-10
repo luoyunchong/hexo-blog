@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>.NET Framework 下的RazorEngine代码生成原理介绍 | 天上有木月博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="RazorEngine模板引擎在旧版本下https://github.com/i542873057/SJNScaffolding  旧版本中使用RazorEngine模板引擎技术，对于熟悉razor语法的开发者来说是非常容易的。  如何使用Razor实现代码生成器这里提供最简单的一个栗子  CopyRightTemplate.cshtml模板代码如下 123456@model SJNScaffol">
+<meta property="og:type" content="article">
+<meta property="og:title" content=".NET Framework 下的RazorEngine代码生成原理介绍">
+<meta property="og:url" content="https://luoyunchong.github.io/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/index.html">
+<meta property="og:site_name" content="天上有木月博客">
+<meta property="og:description" content="RazorEngine模板引擎在旧版本下https://github.com/i542873057/SJNScaffolding  旧版本中使用RazorEngine模板引擎技术，对于熟悉razor语法的开发者来说是非常容易的。  如何使用Razor实现代码生成器这里提供最简单的一个栗子  CopyRightTemplate.cshtml模板代码如下 123456@model SJNScaffol">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/i542873057/SJNScaffolding/raw/master/Img/1.png">
+<meta property="og:updated_time" content="2019-06-10T17:03:00.078Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=".NET Framework 下的RazorEngine代码生成原理介绍">
+<meta name="twitter:description" content="RazorEngine模板引擎在旧版本下https://github.com/i542873057/SJNScaffolding  旧版本中使用RazorEngine模板引擎技术，对于熟悉razor语法的开发者来说是非常容易的。  如何使用Razor实现代码生成器这里提供最简单的一个栗子  CopyRightTemplate.cshtml模板代码如下 123456@model SJNScaffol">
+<meta name="twitter:image" content="https://github.com/i542873057/SJNScaffolding/raw/master/Img/1.png">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="天上有木月博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/hexo-blog/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">天上有木月博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://luoyunchong.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RazorEngine代码生成原理介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/" class="article-date">
+  <time datetime="2019-06-10T16:56:03.000Z" itemprop="datePublished">2019-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      .NET Framework 下的RazorEngine代码生成原理介绍
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="RazorEngine模板引擎"><a href="#RazorEngine模板引擎" class="headerlink" title="RazorEngine模板引擎"></a>RazorEngine模板引擎</h3><p>在旧版本下<a href="https://github.com/i542873057/SJNScaffolding" target="_blank" rel="noopener">https://github.com/i542873057/SJNScaffolding</a></p>
+<blockquote>
+<p><strong>旧版本中使用RazorEngine模板引擎技术，对于熟悉razor语法的开发者来说是非常容易的。</strong></p>
+</blockquote>
+<h3 id="如何使用Razor实现代码生成器"><a href="#如何使用Razor实现代码生成器" class="headerlink" title="如何使用Razor实现代码生成器"></a>如何使用Razor实现代码生成器</h3><p><strong>这里提供最简单的一个栗子</strong></p>
+<ol>
+<li><p>CopyRightTemplate.cshtml模板代码如下</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@model SJNScaffolding.Models.TemplateModels.CopyRightUserInfo</span><br><span class="line">    <span class="comment">//=============================================================</span></span><br><span class="line">    <span class="comment">// 创建人:              @Model.UserName</span></span><br><span class="line">    <span class="comment">// 创建时间:           @Model.CreateTime</span></span><br><span class="line">    <span class="comment">// 邮箱：             @Model.EmailAddress</span></span><br><span class="line">    <span class="comment">//==============================================================</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的实体类</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CopyRightUserInfo</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> UserName &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> EmailAddress &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> DateTime CreateTime &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> FileRemark &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对应的test方法</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据路径。要根据自己实际情况调整</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">const</span> <span class="keyword">string</span> BasePath = <span class="string">@"..\..\..\SJNScaffolding\"</span>;</span><br><span class="line">[<span class="meta">TestMethod</span>]</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCorpyRight</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> path = BasePath + <span class="string">"Templates\\CopyRightTemplate.cshtml"</span>;</span><br><span class="line">    <span class="keyword">var</span> template = File.ReadAllText(path);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">string</span> content = Engine.Razor.RunCompile(template, <span class="string">"CopyRightTemplate"</span>, <span class="keyword">typeof</span>(CopyRightUserInfo), <span class="keyword">new</span> CopyRightUserInfo</span><br><span class="line">    &#123;</span><br><span class="line">        CreateTime = DateTime.Now,</span><br><span class="line">        EmailAddress = <span class="string">"710277267@qq.com"</span>,</span><br><span class="line">        UserName = <span class="string">"IGeekFan"</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下断点后运行，content变量</p>
+</li>
+</ol>
+<p><img src="https://github.com/i542873057/SJNScaffolding/raw/master/Img/1.png" alt></p>
+<p><strong>旧版本使用WPF进行开发，对应的项目名为：SJNScaffolding.WPF，已弃用</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luoyunchong.github.io/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/" data-id="cjwqmlxzn00031ovdi8t0j02i" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Docker 、nginx 、Mysql学习记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/hexo-blog/2019/06/11/ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/hexo-blog/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/Docker 、nginx 、Mysql学习记录/">Docker 、nginx 、Mysql学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/RazorEngine代码生成原理介绍/">.NET Framework 下的RazorEngine代码生成原理介绍</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker/">ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker</a>
+          </li>
+        
+          <li>
+            <a href="/hexo-blog/2019/06/11/1.hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 igeekfan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.css">
+  <script src="/hexo-blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
