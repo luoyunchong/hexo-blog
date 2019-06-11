@@ -1,7 +1,10 @@
 ---
 title: ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker
-date: 2019-06-11 00:54:15
+date: 2019-06-09 00:54:15
 tags:
+- ASP.NET Core
+- ubuntu
+- Docker
 ---
 * 关于ABP代码 生成器的使用介绍 https://blog.csdn.net/q710777720/article/details/91358450
 

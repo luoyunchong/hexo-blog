@@ -11,6 +11,7 @@ author: igeekfan
 language:
 timezone:
 
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://luoyunchong.github.io/hexo-blog/
@@ -20,7 +21,7 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: docs
+public_dir: public
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -73,13 +74,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-
+# theme: landscape
+theme: material-x
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+# Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
   repository: 'https://github.com/luoyunchong/hexo-blog.git'
   branch: 'master'
 
-  
+
