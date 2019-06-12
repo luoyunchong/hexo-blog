@@ -1,14 +1,12 @@
 ---
-title: Docker 、nginx 、Mysql学习记录
+title: Docker 、nginx 学习记录
 date: 2019-06-10 01:00:22
 tags:
-- Mysql
 - nginx
 - Docker
 category:
 - 学习记录
 ---
-
 
 
 ## Docker  学习记录
@@ -119,13 +117,4 @@ service nginx start
 
 
 - [Ubuntu18.04更换镜像源](https://blog.csdn.net/jasonzhoujx/article/details/80360459)
-- [ubuntu16.04 安装mysql5.7并设置root远程访问](https://www.jianshu.com/p/73fb45b9da73)
 
-
-navicat连接MySQL8+时出现2059错误解决方法
-~~~
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-~~~
-
-
-[Docker最全教程之MySQL容器化 （二十五）](https://mp.weixin.qq.com/s?__biz=MzU0Mzk1OTU2Mg==&mid=2247484623&idx=1&sn=b235bb5222ea3391f66f0be0812df49c&chksm=fb023baacc75b2bc8d45b81b9b99a3343ebc877802840a3963d14fc49ae0eda98651f1a9f86e&mpshare=1&scene=23&srcid=06101AKYKpn48TwJXL7VLQ17#rd)

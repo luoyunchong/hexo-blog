@@ -5,6 +5,8 @@ tags:
 - ASP.NET Core
 - ubuntu
 - Docker
+category:
+- 大后端
 ---
 * 关于ABP代码 生成器的使用介绍 https://blog.csdn.net/q710777720/article/details/91358450
 

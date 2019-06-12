@@ -2,8 +2,12 @@
 title:  .NET Framework 下的RazorEngine代码生成原理介绍
 date: 2019-06-12 00:56:03
 tags:
+- .NET Framework
+- RazorEngine
+- 代码生成器
+category:
+- .NET Framework
 ---
-
 
 ### RazorEngine模板引擎
 在旧版本下[https://github.com/i542873057/SJNScaffolding](https://github.com/i542873057/SJNScaffolding)
