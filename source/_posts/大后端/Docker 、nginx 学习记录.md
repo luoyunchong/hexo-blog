@@ -121,10 +121,10 @@ service nginx start
 
 - [Ubuntu18.04更换镜像源](https://blog.csdn.net/jasonzhoujx/article/details/80360459)
 
-
+## nginx配置二级域名
 
 在Ubuntu服务器上安装好nginx，实现不同静态或动态页面服务，可配置自定义二级域名
-* 参考 [nginx配置二级域名](https://cloud.tencent.com/developer/article/1183138)
+* 可参考 [nginx配置二级域名](https://cloud.tencent.com/developer/article/1183138)
 
 我是使用的[腾讯云
 ](https://cloud.tencent.com/redirect.php?redirect=1042&cps_key=01a3c9a5a3ce578801cd6f805c09b701&from=console)，有需要可以使用。域名注册的过程就不BB了，假设前提，你有一个备案好的域名。
@@ -145,14 +145,14 @@ service nginx start
 81端口
 <fancybox>
 
-[![image51555.md.png](https://miao.su/images/2019/06/25/image51555.md.png)](https://miao.su/image/TTOGB)
+![image51555.md.png](https://miao.su/images/2019/06/25/image51555.md.png)
 
 </fancybox>
 
 82端口
 <fancybox>
 
-[![imagec5d3e.md.png](https://miao.su/images/2019/06/25/imagec5d3e.md.png)](https://miao.su/image/TTS7J)
+![imagec5d3e.md.png](https://miao.su/images/2019/06/25/imagec5d3e.md.png)
 
 </fancybox>
 
@@ -232,12 +232,13 @@ nginx -s reload
 效果图 81端口，转发到docs.igeekfan.cn
 <fancybox>
 
-[![Y_XRRQRZJZXJ5N96919c.md.png](https://miao.su/images/2019/06/25/Y_XRRQRZJZXJ5N96919c.md.png)](https://miao.su/image/TTeMm)
+![Y_XRRQRZJZXJ5N96919c.md.png](https://miao.su/images/2019/06/25/Y_XRRQRZJZXJ5N96919c.md.png)
 
 </fancybox>
 
 效果图 82端口,转发到blog.igeekfan.cn
 <fancybox>
 
-[![imagedfa93.md.png](https://miao.su/images/2019/06/25/imagedfa93.md.png)](https://miao.su/image/TT3Zs)
+![imagedfa93.md.png](https://miao.su/images/2019/06/25/imagedfa93.md.png)]
+
 </fancybox>
