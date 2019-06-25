@@ -9,6 +9,9 @@
 - UI主题:[https://xaoxuu.com/wiki/material-x/index.html](https://xaoxuu.com/wiki/material-x/index.html)
 
 
+- 部署独立地址 [http://blog.igeekfan.cn/](http://blog.igeekfan.cn/)
+- github.io GitPages [https://luoyunchong.github.io](https://luoyunchong.github.io)
+
 ## Quick Start
 
 ### Create a new post

@@ -121,3 +121,123 @@ service nginx start
 
 - [Ubuntu18.04更换镜像源](https://blog.csdn.net/jasonzhoujx/article/details/80360459)
 
+
+
+在Ubuntu服务器上安装好nginx，实现不同静态或动态页面服务，可配置自定义二级域名
+* 参考 [nginx配置二级域名](https://cloud.tencent.com/developer/article/1183138)
+
+我是使用的[腾讯云
+](https://cloud.tencent.com/redirect.php?redirect=1042&cps_key=01a3c9a5a3ce578801cd6f805c09b701&from=console)，有需要可以使用。域名注册的过程就不BB了，假设前提，你有一个备案好的域名。
+云产品->域名解析->选择一个域名（列表页选择解析）->添加记录（依次从在表格上填写，如下图所示，可点击查看大图）
+
+<fancybox>
+
+![](https://miao.su/images/2019/06/25/RSF6QBO9P646IV17eef5c.png)
+
+</fancybox>
+
+远程连接服务器后，增加相应的配置项，我们使用nginx实现域名的配置，安装nginx(也不详细说明)，这时候，（/var/www/html）会有一个.html,就是一个欢迎使用nginx的页面。
+
+下面的功能，是模拟二个服务，一个是
+- http://122.152.192.161:81->这个是nginx安装后的默认欢迎页面。
+- http://122.152.192.161:82->这个是我使用[hexo](https://github.com/luoyunchong/hexo-blog)做的静态博客，（可以随便使用一个静态页面index.html，以供测试，root参数配置相应的目录）
+
+81端口
+<fancybox>
+
+[![image51555.md.png](https://miao.su/images/2019/06/25/image51555.md.png)](https://miao.su/image/TTOGB)
+
+</fancybox>
+
+82端口
+<fancybox>
+
+[![imagec5d3e.md.png](https://miao.su/images/2019/06/25/imagec5d3e.md.png)](https://miao.su/image/TTS7J)
+
+</fancybox>
+
+~~~bash
+
+cd /etc/nginx/sites-enabled
+vim defult
+~~~
+
+~~~
+server {
+        listen 81;
+        listen [::]:81;
+
+        root /var/www/html;
+        index index.html index.nginx-debian.html;
+        charset utf-8;
+        location / {
+             try_files $uri $uri/ =404;
+        }
+}
+
+server {
+        listen 82;
+        charset utf-8;
+        root /var/www/html/hexo-blog;
+        index index.html index.htm index.nginx-debian.html;
+        location  / {
+                try_files $uri $uri/ =404;
+        }
+}
+~~~
+
+因为/etc/nginx/nginx.conf把conf.d文件夹中所有以.conf后缀的都包含进去作为配置项了。
+~~~bash
+cd /etc/nginx/conf.d
+vim docs.conf  #所以这个docs只要以.conf后缀即可，“docs"可自定义值。
+~~~
+
+~~~
+server {  
+    listen 80;
+    server_name docs.igeekfan.cn;
+
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://0.0.0.0:81;
+    }
+}
+~~~
+
+~~~
+#ESC然后:wq退出，保存，
+vim blog.conf   #再新建一个文件夹，配置博客
+~~~
+
+~~~
+server {
+    listen 80;
+    server_name blog.igeekfan.cn;
+
+    location / {
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   Host      $http_host;
+        proxy_pass         http://0.0.0.0:82;
+    }
+
+}
+~~~
+
+然后,加载配置项
+~~~
+nginx -s reload
+~~~
+
+效果图 81端口，转发到docs.igeekfan.cn
+<fancybox>
+
+[![Y_XRRQRZJZXJ5N96919c.md.png](https://miao.su/images/2019/06/25/Y_XRRQRZJZXJ5N96919c.md.png)](https://miao.su/image/TTeMm)
+
+</fancybox>
+
+效果图 82端口,转发到blog.igeekfan.cn
+<fancybox>
+
+[![imagedfa93.md.png](https://miao.su/images/2019/06/25/imagedfa93.md.png)](https://miao.su/image/TT3Zs)
+</fancybox>
