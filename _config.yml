@@ -92,7 +92,6 @@ gitalk:
   repo: hexo-blog
   owner: luoyunchong
   admin: [luoyunchong]
-  id: location.pathname
 # leancloud: 要使用哪个请复制到根目录配置文件！
 #   app_id: 你的appId
 #   app_key: 你的appKey
