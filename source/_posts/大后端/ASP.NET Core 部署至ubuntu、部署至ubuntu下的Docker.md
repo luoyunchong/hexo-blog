@@ -3,7 +3,7 @@ title: ASP.NET Core 部署至ubuntu、部署至ubuntu下的Docker
 date: 2019-06-09 00:54:15
 tags:
 - ASP.NET Core
-- ubuntu
+- Ubuntu
 - Docker
 category:
 - 大后端
@@ -78,7 +78,7 @@ sudo service nginx restart
 [ASP.NET Core Linux下为 dotnet 创建守护进程（必备知识）
 前言](https://www.cnblogs.com/savorboard/p/dotnetcore-supervisor.html)
 
-[结合Nginx将asp net core部署在Linux(ubuntu)上[基于微软官方文档翻译并补充]](https://www.jianshu.com/p/f6d2203807ab)
+[结合Nginx将asp net core部署在Linux(Ubuntu)上[基于微软官方文档翻译并补充]](https://www.jianshu.com/p/f6d2203807ab)
 
 [Ubuntu 18.04 安装部署Net Core、Nginx全过程](https://www.cnblogs.com/xyfy/p/9881855.html)
 

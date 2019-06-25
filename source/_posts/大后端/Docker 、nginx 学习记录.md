@@ -89,7 +89,7 @@ docker load < demo.tar
 
 ## nginx 相关命令
 
-ubuntu 进入root 权限，不用每次加sudo
+Ubuntu 进入root 权限，不用每次加sudo
 ~~~
 sudo su 
 #然后输入root 密码
