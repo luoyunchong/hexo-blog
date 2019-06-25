@@ -70,6 +70,9 @@ cover:
     - name: 分类
       icon: fas fa-folder-open
       url: categories/
+    - name: 标签
+      icon: fas fa-expand-arrows-alt
+      url: tags/
     - name: 友链
       icon: fas fa-link
       url: friends/
@@ -136,6 +139,8 @@ body: [article, comments]
 # 侧边栏小部件，默认按下面给定的顺序全部显示，文章中还可以自定义显示一部分以及顺序
 sidebar:
   - widget: author
+    title: 、天上有木月
+    body: 了不起的盖茨比
     avatar: https://miao.su/images/2019/06/12/mmexport1551804477516c39f2.jpg
     social: true
   - widget: toc
@@ -250,7 +255,7 @@ valine:
   #   app_key: 你的appKey
   guest_info: nick,mail,link #valine comment header info
   placeholder: 快来评论吧~ # valine comment input placeholder(like: Please leave your footprints )
-  avatar: mp # gravatar style https://valine.js.org/avatar
+  avatar: https://miao.su/images/2019/06/12/mmexport1551804477516c39f2.jpg # gravatar style https://valine.js.org/avatar
   pageSize: 10 # comment list page size
   verify: true # valine verify code (true/false)
   notify: true # valine mail notify (true/false)

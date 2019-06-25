@@ -4,12 +4,13 @@ date: 2019-06-12 14:27:54
 tags: TypeScript
 ---
 # TS 学习笔记记录
-
 相关文档
 - [TypeScript 入门教程-xcatliu](https://ts.xcatliu.com/)
 - [JavaScript高级程序设计（第三版）pdf的下载地址](https://blog.csdn.net/gao531162436/article/details/79087456)
--  [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/?q=)
--  [Typescript教程_Typescript视频教程 ts入门实战视频教程](https://www.bilibili.com/video/av38379328/?p=1)
+- [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/?q=)
+- [Typescript教程_Typescript视频教程 ts入门实战视频教程](https://www.bilibili.com/video/av38379328/?p=1)
+
+<!-- more -->
 
 ## 原始数据类型 
 原始数据类型包括布尔值、数值、字符串、null、undefined、Symbol。

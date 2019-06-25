@@ -1,11 +1,13 @@
 ---
 title: Docker 、nginx 学习记录
 date: 2019-06-10 01:00:22
+# description: Docker for windows 下安装 问题，Docker相关文档，Docker 命令行等，nginx相关命令行
 tags:
 - nginx
 - Docker
 category:
 - 学习记录
+- 命令行
 ---
 
 
@@ -19,6 +21,8 @@ Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-
 * [hyperv 无法打开虚拟交换机管理器，报错“尝试检索虚拟交换机列表时出错](https://social.msdn.microsoft.com/Forums/healthvault/zh-CN/cf5c267b-1ca0-40dd-9959-5ecb3475a06c/hyperv?forum=window10app)
 
 **后来找到解决办法，在设置-更新和安全-Windows预览体验计划，先去官网申请，申请后，升级系统，他会帮我修复Hyper-V.**
+
+<!-- more -->
 
 ## Docker 相关文档
 [Docker最全教程——从理论到实战(一)](https://www.cnblogs.com/codelove/p/10030439.html)

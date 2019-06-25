@@ -1,6 +1,7 @@
 ---
 title:  Visual Studio如何增加版权信息
 date: 2019-06-12 00:56:03
+description: 关于VS增加版权问题，及相关配置项，参考等。
 tags:
 - .NET 
 - Visual Studio

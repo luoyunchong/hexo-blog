@@ -13,6 +13,8 @@ category:
 将自定义-ABP代码生成器，使用. NET Core下的Razor模板引擎，配合RazorPage界面，可自定义cshtml模板，开源地址： [https://github.com/i542873057/SJNScaffolding](https://github.com/i542873057/SJNScaffolding) 部署至ubuntu、Docker的记录
 > 相关技术 .NET Core2.2+Docker+Nginx+Supervisor 
 
+<!-- more -->
+
 ## 部署至ubuntu下
 
 可参考 [https://www.cnblogs.com/linezero/p/aspnetcoreubuntu.html](https://www.cnblogs.com/linezero/p/aspnetcoreubuntu.html)
@@ -33,7 +35,9 @@ dotnet SJNScaffolding.RazorPage.dll #启动web项目，默认应该是http://loc
 ~~~
 参考下图
 
+<fancybox>
 ![https://miao.su/images/2019/06/09/5NOPVXLDV0IMA_QO7cdd8d.png](https://miao.su/images/2019/06/09/5NOPVXLDV0IMA_QO7cdd8d.png)
+</fancybox>
 
 ip:端口是无法访问到的，
 命令行中执行，下面这行命令，是正常的，但只能服务器访问，外网无法访问。

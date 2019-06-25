@@ -1,7 +1,8 @@
 ---
-title: abp源码解析
+title: ABP源码解析
 date: 2019-01-09 14:40:26
 tags: ABP
+description: 旧项目使用ABP框架时，对基础的ABP源码、框架、架构的简单介绍
 category:
 - ABP
 ---

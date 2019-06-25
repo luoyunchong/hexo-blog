@@ -2,6 +2,7 @@
 title: ABP代码生成器
 date: 2019-06-12 14:40:26
 tags: ABP 代码生成器
+description: 基于 DotNET Core、RazorPage，借鉴SmartCode，完成ABP的代码生成器。
 category:
 - ABP
 ---
@@ -29,8 +30,9 @@ CodeLF帮程序员起变量名的网站:[https://unbug.github.io/codelf/](https:
 
 ## 使用方法
 准备一个这样格式的数据字典
+<fancybox>
   ![avatar](https://github.com/i542873057/SJNScaffolding/raw/master/Img/2.png)
-
+</fancybox>
 运行程序，然后首先来到配置界面，这里可以配置你要生成的表名，以及项目名称等，配置完成之后点击**保存配置**
 
   ![avatar](https://github.com/i542873057/SJNScaffolding/raw/master/Img/3.png)

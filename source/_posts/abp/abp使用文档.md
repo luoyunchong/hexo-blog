@@ -2,6 +2,7 @@
 title: ABP使用文档
 date: 2019-03-12 14:40:26
 tags: ABP
+description: 旧项目使用ABP框架时，.NET Framework下通用文档，最基础的类，服务，接口等。
 category:
 - ABP
 ---

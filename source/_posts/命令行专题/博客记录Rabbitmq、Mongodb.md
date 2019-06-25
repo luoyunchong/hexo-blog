@@ -1,6 +1,7 @@
 ---
 title: 博客记录Rabbitmq、Mongodb
 date: 2019-05-8 14:41:21
+description: RabbitMQ安装后web管理、删除服务Mongodb
 tags: Rabbitmq Mongodb
 ---
 

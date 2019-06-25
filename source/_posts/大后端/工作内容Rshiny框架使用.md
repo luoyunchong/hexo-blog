@@ -1,6 +1,7 @@
 ---
 title:  工作内容Rshiny框架使用
 date: 2018-12-26 00:56:03
+description: R语言框架中的Rshiny Web框架，学习记录相关文档，命令行配置项，发布，异步编程。
 tags:
 - Rshiny
 category:

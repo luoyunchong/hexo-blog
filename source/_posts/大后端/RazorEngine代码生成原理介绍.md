@@ -1,6 +1,7 @@
 ---
 title:  .NET Framework 下的RazorEngine代码生成原理介绍
 date: 2019-06-12 00:56:03
+description: 在.NET Framework框架中，将一个cshtml文件中的Razor模板，使用RazorEngine，将数据绑定上去，生成相应的页面文本
 tags:
 - .NET Framework
 - RazorEngine
@@ -57,8 +58,8 @@ category:
 
         }
 ```
-4. 下断点后运行，content变量
+4. 下断点后运行，content变量    
 
-![](https://github.com/i542873057/SJNScaffolding/raw/master/Img/1.png)
+![SJNScaffolding](https://github.com/i542873057/SJNScaffolding/raw/master/Img/1.png)
 
 **旧版本使用WPF进行开发，对应的项目名为：SJNScaffolding.WPF，已弃用**
