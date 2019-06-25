@@ -140,8 +140,9 @@ body: [article, comments]
 sidebar:
   - widget: author
     title: 、天上有木月
-    body: 了不起的盖茨比
+    # body: 了不起的盖茨比
     avatar: https://miao.su/images/2019/06/12/mmexport1551804477516c39f2.jpg
+    jinrishici: 小楼昨夜又东风
     social: true
   - widget: toc
   - widget: grid
@@ -247,7 +248,7 @@ share:
 ############################### 杂项，请勿删除 ###############################
 #valine配置
 valine:
-  enable: true # 如果你想用Valine评论系统，请设置enable为true
+  enable: false # 如果你想用Valine评论系统，请设置enable为true
   volantis: true # 是否启用volantis版本（禁止匿名，增加若干贴吧、QQ表情）
   # 还需要在根目录配置文件中添加下面这三行内容
   # leancloud:
@@ -283,3 +284,5 @@ search:
 # Less渲染
 less:
   compress: true
+
+word_count: true

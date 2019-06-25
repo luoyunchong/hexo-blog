@@ -1,5 +1,5 @@
 ---
-title: Mysql学习记录
+title: MySQL学习记录
 date: 2018-12-02 23:21:22
 description: Mysql8.0+使用Navicat Premium 12连接2059错误，通过修改密码规则即可。Docker下的MySQL容器化，根据父菜单id得到所有的子节点，MySQL新建存储过程，ABP中调用存储过程
 tags:

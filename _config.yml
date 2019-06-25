@@ -8,7 +8,7 @@ subtitle:
 description:
 keywords:
 author: IGeekFan
-language:
+language: zh-CN
 timezone:
 
 
@@ -84,3 +84,15 @@ deploy:
   branch: 'master'
 
 
+baidu_analytics_key: 5eeea301a5246d38f8ecf29b5dcd7bbe
+
+gitalk: 
+  clientID: 70ba179c7cf0f158ad7d
+  clientSecret: 76bea5d6863b98331709de2d6220bf439426d957
+  repo: hexo-blog
+  owner: luoyunchong
+  admin: [luoyunchong]
+  id: location.pathname
+# leancloud: 要使用哪个请复制到根目录配置文件！
+#   app_id: 你的appId
+#   app_key: 你的appKey

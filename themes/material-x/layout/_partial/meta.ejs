@@ -35,13 +35,17 @@ if (post.meta && (post.meta.footer !== undefined && post.meta.footer !== null)) 
     <div class="meta" id="header-meta">
       <% if((topMetas).indexOf('title') > -1){ %>
         <%- partial('../_meta/' + 'title', {post: post, isPostList: isPostList}) %>
-      <% } %>
+      <% } %> 
+    
       <div class='new-meta-box'>
         <% (topMetas).forEach(function(meta){ %>
           <% if(meta != 'title'){ %>
             <%- partial('../_meta/' + meta, {post: post, isPostList: isPostList}) %>
           <% } %>
         <% }) %>
+        <% if(theme.word_count&&!post.no_word_count){ %>
+          <%- partial('post/word') %>
+          <% } %>
       </div>
       <% if ((topMetas).length > 0){ %>
         <hr>

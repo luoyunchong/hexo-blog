@@ -4,8 +4,9 @@
  基于hexo的静态博客
 
 
-hexo开源地址 ：[https://github.com/hexojs/hexo](https://github.com/hexojs/hexo)
+- hexo开源地址 ：[https://github.com/hexojs/hexo](https://github.com/hexojs/hexo)
 
+- UI主题:[https://xaoxuu.com/wiki/material-x/index.html](https://xaoxuu.com/wiki/material-x/index.html)
 
 
 ## Quick Start
