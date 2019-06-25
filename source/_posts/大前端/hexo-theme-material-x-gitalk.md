@@ -86,5 +86,38 @@ gitalk:
 ~~~
 和
 ~~~
-id: md5(location.pathname
+id: md5(location.pathname)
+~~~
+
+* 当浏览到一个不存在的地址时，会跳转至404，然后，由于没有给404增加gitalk设置id，所以会出现多个404NOT FOUND issues，所以在404.md中增加如下配置 （“/404”为任意唯一字符串值）
+~~~
+gitalk:
+  id: /404
+~~~
+
+完整title
+~~~
+---
+layout: page
+title: 404 Not Found
+body: [article, comments]
+meta:
+  header: false
+  footer: false
+sidebar: false
+valine:
+  path: /404.html
+  placeholder: 请留言告诉我您要访问哪个页面找不到了
+---
+
+# <center>**404 Not Found**</center>
+
+<br>
+
+# <center>很抱歉，您访问的页面不存在</center>
+
+<center>可能是输入地址有误或该地址已被删除</center>
+
+<br>
+<br>
 ~~~
