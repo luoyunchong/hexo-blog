@@ -139,20 +139,22 @@ service nginx start
 远程连接服务器后，增加相应的配置项，我们使用nginx实现域名的配置，安装nginx(也不详细说明)，这时候，（/var/www/html）会有一个.html,就是一个欢迎使用nginx的页面。
 
 下面的功能，是模拟二个服务，一个是
-- http://122.152.192.161:81->这个是nginx安装后的默认欢迎页面。
-- http://122.152.192.161:82->这个是我使用[hexo](https://github.com/luoyunchong/hexo-blog)做的静态博客，（可以随便使用一个静态页面index.html，以供测试，root参数配置相应的目录）
+- http://122.152.192.161:81 ->这个是nginx安装后的默认欢迎页面。
+- http://122.152.192.161:82 ->这个是我使用[hexo](https://github.com/luoyunchong/hexo-blog)做的静态博客，（可以随便使用一个静态页面index.html，以供测试，root参数配置相应的目录）
 
 81端口
+
 <fancybox>
 
-![image51555.md.png](https://miao.su/images/2019/06/25/image51555.md.png)
+![image51555.png](https://miao.su/images/2019/06/25/image51555.png)
 
 </fancybox>
 
 82端口
+
 <fancybox>
 
-![imagec5d3e.md.png](https://miao.su/images/2019/06/25/imagec5d3e.md.png)
+![imagec5d3e.png](https://miao.su/images/2019/06/25/imagec5d3e.png)
 
 </fancybox>
 
@@ -229,16 +231,18 @@ server {
 nginx -s reload
 ~~~
 
-效果图 81端口，转发到docs.igeekfan.cn
+效果图 81端口，转发到 docs.igeekfan.cn
+
 <fancybox>
 
-![Y_XRRQRZJZXJ5N96919c.md.png](https://miao.su/images/2019/06/25/Y_XRRQRZJZXJ5N96919c.md.png)
+![Y_XRRQRZJZXJ5N96919c.png](https://miao.su/images/2019/06/25/Y_XRRQRZJZXJ5N96919c.png)
 
 </fancybox>
 
-效果图 82端口,转发到blog.igeekfan.cn
+效果图 82端口,转发到 blog.igeekfan.cn
+
 <fancybox>
 
-![imagedfa93.md.png](https://miao.su/images/2019/06/25/imagedfa93.md.png)]
+![imagedfa93.png](https://miao.su/images/2019/06/25/imagedfa93.png)
 
 </fancybox>
