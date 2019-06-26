@@ -16,7 +16,7 @@ install:
 
 script:
   - hexo clean  #清除
-  - hexo g && gulp  #生成
+  - hexo g 
 
 after_script:
   - cd ./public
