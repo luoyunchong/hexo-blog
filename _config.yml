@@ -80,7 +80,7 @@ theme: material-x
 # Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: 'git'
-  repository: 'https://github.com/luoyunchong/luoyunchong.github.io.git'
+  repository: 'https://gh_token@github.com/luoyunchong/luoyunchong.github.io.git'
   branch: 'master'
 
 
