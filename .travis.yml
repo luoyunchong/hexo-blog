@@ -16,7 +16,7 @@ install:
 
 script:
   - hexo clean  #清除
-  - hexo g && gulp  #生成
+  - hexo g
 
 after_script:
   - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
