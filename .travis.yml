@@ -16,16 +16,16 @@ install:
 
 script:
   - hexo clean  #清除
-  - hexo d
+  - hexo g
 
 after_script:
-  # - cd ./public
-  # - git init
-  # - git config user.name "luoyunchong" # 修改name
-  # - git config user.email "luoyunchong@foxmail.com" # 修改email
-  # - git add .
-  # - git commit -m "Travis CI Auto Builder"
-  # - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
+  - cd ./public
+  - git init
+  - git config user.name "luoyunchong" # 修改name
+  - git config user.email "luoyunchong@foxmail.com" # 修改email
+  - git add .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
 # E: Build LifeCycle
 
 
