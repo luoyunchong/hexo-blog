@@ -16,16 +16,16 @@ install:
 
 script:
   - hexo clean  #清除
-  - hexo g
+  - hexo g && gulp  #生成
 
 after_script:
-  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
-  - git config user.name "luoyunchong"  #修改name
-  - git config user.email "luoyunchong@foxmail.com"  #修改email
+  - git init
+  - git config user.name "luoyunchong" # 修改name
+  - git config user.email "luoyunchong@foxmail.com" # 修改email
   - git add .
-  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #Travis_Token是在Travis中配置环境变量的名称
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
 # E: Build LifeCycle
 
 
