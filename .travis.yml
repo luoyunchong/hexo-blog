@@ -25,16 +25,19 @@ after_script:
   # - git config user.email "luoyunchong@foxmail.com" # 修改email
   # - git add .
   # - git commit -m "Travis CI Auto Builder"
-  # - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
+  # - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称 # 一种 
   - git config user.name "luoyunchong" # 修改name
   - git config user.email "luoyunchong@foxmail.com" # 修改email
-  - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
+  - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml # 替换同目录下的_config.yml文件中gh_token字符串为travis后台刚才配置的变量，注意此处sed命令用了双引号。单引号无效！
   - hexo deploy
 
-# after_success:
-#   - openssl aes-256-cbc -K $encrypted_2c430460807a_key -iv $encrypted_2c430460807a_iv
-#   - in id_rsa.enc -out ~\/.ssh/id_rsa -d
-#   - rsync -az --delete ./public/* ubuntu@122.152.192.161:/var/www/html/hexo-blog
+after_success:
+  - openssl aes-256-cbc -K $encrypted_2c430460807a_key -iv $encrypted_2c430460807a_iv
+  - in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+
+addons:
+  ssh_known_hosts: ${DEPLOY_IP}
 
 branches:
   only:
