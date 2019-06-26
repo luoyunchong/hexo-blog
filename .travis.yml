@@ -15,7 +15,6 @@ before_install:
 install:
   - npm install
 
-
 #before_script:
  # - npm install -g gulp
 
@@ -24,7 +23,7 @@ script:
   - hexo g
 
 addons:
-  ssh_known_hosts: ${DEPLOY_IP}
+  ssh_known_hosts: $DEPLOY_IP
 
 after_script:
   # - cd ./public
@@ -38,9 +37,10 @@ after_script:
   - git config user.email "luoyunchong@foxmail.com" # 修改email
   - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml # 替换同目录下的_config.yml文件中gh_token字符串为travis后台刚才配置的变量，注意此处sed命令用了双引号。单引号无效！
   - hexo deploy
+
+after_success:
   - pwd
   - scp -o StrictHostKeyChecking=no -r public/  ubuntu@$DEPLOY_IP:/var/www/html/hexo-blog
-
 
 branches:
   only:
