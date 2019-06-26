@@ -7,8 +7,8 @@ cache:
         - node_modules # 缓存不经常更改的内容
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_3f5b9d00fa1f_key -iv $encrypted_3f5b9d00fa1f_iv 
-    -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  - openssl aes-256-cbc -K $encrypted_3f5b9d00fa1f_key -iv $encrypted_3f5b9d00fa1f_iv
+    -in id_rsa.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
 
 # S: Build Lifecycle
