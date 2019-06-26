@@ -6,6 +6,11 @@ cache:
     directories:
         - node_modules # 缓存不经常更改的内容
 
+before_install:
+  - openssl aes-256-cbc -K $encrypted_2c430460807a_key -iv $encrypted_2c430460807a_iv
+  -in .travis/id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+
 # S: Build Lifecycle
 install:
   - npm install
@@ -30,11 +35,8 @@ after_script:
   - git config user.email "luoyunchong@foxmail.com" # 修改email
   - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml # 替换同目录下的_config.yml文件中gh_token字符串为travis后台刚才配置的变量，注意此处sed命令用了双引号。单引号无效！
   - hexo deploy
-
-after_success:
-  - openssl aes-256-cbc -K $encrypted_2c430460807a_key -iv $encrypted_2c430460807a_iv
-  -in id_rsa.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa
+  - pwd
+  - scp -o StrictHostKeyChecking=no -r public/  ubuntu@$DEPLOY_IP:/var/www/html/hexo-blog
 
 addons:
   ssh_known_hosts: ${DEPLOY_IP}
