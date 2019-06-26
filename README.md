@@ -3,6 +3,8 @@
 
  基于hexo的静态博客
 
+[![Travis CI Status](https://travis-ci.com/luoyunchong/hexo-blog.svg?branch=master)](https://travis-ci.com/luoyunchong/hexo-blog)    
+
 
 - hexo开源地址 ：[https://github.com/hexojs/hexo](https://github.com/hexojs/hexo)
 

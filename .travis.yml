@@ -1,6 +1,11 @@
 language: node_js
 node_js: stable
 
+cache:
+    apt: true
+    directories:
+        - node_modules # 缓存不经常更改的内容
+
 # S: Build Lifecycle
 install:
   - npm install
@@ -10,17 +15,19 @@ install:
  # - npm install -g gulp
 
 script:
-  - hexo g
+  - hexo clean  #清除
+  - hexo g && gulp  #生成
 
 after_script:
+  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
-  - git init
-  - git config user.name "luoyunchong"
-  - git config user.email "luoyunchong@foxmail.com.com"
+  - git config user.name "luoyunchong"  #修改name
+  - git config user.email "luoyunchong@foxmail.com"  #修改email
   - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master  #Travis_Token是在Travis中配置环境变量的名称
 # E: Build LifeCycle
+
 
 branches:
   only:
@@ -28,3 +35,10 @@ branches:
 env:
  global:
    - GH_REF: github.com/luoyunchong/luoyunchong.github.io.git
+
+
+notifications:
+  email:
+    - luoyunchong@foxmail.com
+  on_success: change
+  on_failure: always
