@@ -23,6 +23,9 @@ script:
   - hexo clean  #清除
   - hexo g
 
+addons:
+  ssh_known_hosts: ${DEPLOY_IP}
+
 after_script:
   # - cd ./public
   # - git init
@@ -38,8 +41,6 @@ after_script:
   - pwd
   - scp -o StrictHostKeyChecking=no -r public/  ubuntu@$DEPLOY_IP:/var/www/html/hexo-blog
 
-addons:
-  ssh_known_hosts: ${DEPLOY_IP}
 
 branches:
   only:
