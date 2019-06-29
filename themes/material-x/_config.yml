@@ -1,7 +1,7 @@
 ############################### 基本信息 ###############################
 info:
-  name: Material X
-  docs: https://github.com/luoyunchong
+  name: 天上有木月
+  docs: https://github.com/luoyunchong/hexo-blog
   cdn: # 把对应的那一行注释掉就使用本地的文件
     css:
       style: https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.5/css/style.css
@@ -55,32 +55,32 @@ backstretch:
 
 
 ############################### 自定义 ###############################
-# page的封面
-cover:
-  scheme: search    # 后期将会提供多种封面方案
-  # height: half      # full（默认值）: 首页封面占据整个第一屏幕，其他页面占半个屏幕高度， half: 所有页面都封面都只占半个屏幕高度
-  title: "Material X"
-  # logo: assets/logo.png    # logo和title只显示一个，若同时设置，则只显示logo
-  # search_placeholder: '搜索'
-  # 主页封面菜单
-  features:
-    - name: 博文
-      icon: fas fa-rss
-      url: /
-    - name: 分类
-      icon: fas fa-folder-open
-      url: categories/
-    - name: 标签
-      icon: fas fa-expand-arrows-alt
-      url: tags/
-    - name: 友链
-      icon: fas fa-link
-      url: friends/
-      rel: nofollow
-    - name: 关于
-      icon: fas fa-info-circle
-      url: about/
-      rel: nofollow
+# # page的封面
+# cover:
+#   scheme: search    # 后期将会提供多种封面方案
+#   # height: half      # full（默认值）: 首页封面占据整个第一屏幕，其他页面占半个屏幕高度， half: 所有页面都封面都只占半个屏幕高度
+#   title: "天上有木月博客"
+#   # logo: assets/logo.png    # logo和title只显示一个，若同时设置，则只显示logo
+#   # search_placeholder: '搜索'
+#   # 主页封面菜单
+#   features:
+#     - name: 博文
+#       icon: fas fa-rss
+#       url: /
+#     - name: 分类
+#       icon: fas fa-folder-open
+#       url: categories/
+#     - name: 标签
+#       icon: fas fa-expand-arrows-alt
+#       url: tags/
+#     - name: 友链
+#       icon: fas fa-link
+#       url: friends/
+#       rel: nofollow
+#     - name: 关于
+#       icon: fas fa-info-circle
+#       url: about/
+#       rel: nofollow
 
 
 # 桌面端导航栏菜单
@@ -96,9 +96,17 @@ menu_desktop:
     icon: fas fa-hashtag
     url: tags/
     rel: nofollow
-  - name: 归档
+  - name: 文章归档
     icon: fas fa-archive
     url: archives/
+    rel: nofollow
+  - name: 友链
+    icon: fas fa-link
+    url: friends/
+    rel: nofollow
+  - name: 关于
+    icon: fas fa-info-circle
+    url: about/
     rel: nofollow
 
 # 手机端导航菜单（从右上角的按钮点击展开）
@@ -117,10 +125,6 @@ menu_mobile:
     icon: fas fa-link
     url: friends/
     rel: nofollow
-  - name: 开源项目
-    icon: fas fa-github
-    url: https://github.com/luoyunchong
-    rel: nofollow
   - name: 关于小站
     icon: fas fa-info-circle
     url: about/
@@ -138,13 +142,13 @@ body: [article, comments]
 
 # 侧边栏小部件，默认按下面给定的顺序全部显示，文章中还可以自定义显示一部分以及顺序
 sidebar:
+  - widget: toc
   - widget: author
     title: 、天上有木月
     # body: 了不起的盖茨比
     avatar: https://miao.su/images/2019/06/12/mmexport1551804477516c39f2.jpg
     jinrishici: 小楼昨夜又东风
     social: true
-  - widget: toc
   - widget: grid
     icon: fas fa-map-signs
     title: 站内导航
@@ -198,14 +202,22 @@ sidebar:
 
 # 社交信息
 social:
-  - icon: fas fa-rss
-    url: atom.xml
+  # - icon: fas fa-rss
+  #   url: atom.xml
+  - icon: fas fa-list-alt
+    url: https://blog.csdn.net/q710777720
+    title: CSDN
+  - icon: fab fa-weixin
+    url: http://igeekfan.cn/Content/Images/weixin.png
+    title: weixin
   - icon: fas fa-envelope
     url: mailto:luoyunchong@foxmail.com
+    title: Email
   - icon: fab fa-github
     url: https://github.com/luoyunchong
-  - icon: fas fa-headphones-alt
-    url: https://music.163.com/#/user/home?id=274700474
+    title: GitHub
+  # - icon: fas fa-headphones-alt
+  #   url: https://music.163.com/#/user/home?id=274700474
 
 # 分享按钮
 # 当id为qrcode时需要安装插件  npm i -S hexo-helper-qrcode
@@ -228,7 +240,7 @@ share:
 
 
 
-# footer: '页脚文字，支持[markdown](/)'
+footer: '页脚文字，支持[markdown](/)'
 
 
 ############################### 评论系统 ###############################
