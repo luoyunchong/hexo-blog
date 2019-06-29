@@ -11,6 +11,7 @@ category:
 
 
 ## 主要完成的功能
+
  - hexo博客 master 分支 https://github.com/luoyunchong/hexo-blog
  - 放静态资源 https://github.com/luoyunchong/luoyunchong.github.io 
  - github帮我发布的github Pages https://luoyunchong.github.io
