@@ -14,11 +14,11 @@ before_install:
 # S: Build Lifecycle
 install:
   - npm install
-  - sed -i "s/publish_url/${GU_GITHUB}/g" ./_config.yml 
 #before_script:
  # - npm install -g gulp
 
 script:
+  - sed -i "publish_url/${GU_GITHUB}/g" ./_config.yml 
   - hexo clean  #清除
   - hexo g
 
@@ -39,7 +39,7 @@ after_script:
   - hexo deploy
 
 after_success:
-  - sed -i "s/publish_url/${GU_BLOG}/g" ./_config.yml 
+  - sed -i "publish_url/${GU_GITHUB}/g" ./_config.yml 
   - hexo clean  #清除
   - hexo g
   - pwd
