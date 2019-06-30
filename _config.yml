@@ -14,7 +14,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: publish_url  #https://luoyunchong.github.io
+url: http://blog.igeekfan.cn  #https://luoyunchong.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

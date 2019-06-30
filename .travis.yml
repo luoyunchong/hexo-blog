@@ -18,7 +18,6 @@ install:
  # - npm install -g gulp
 
 script:
-  - sed -i "publish_url/${GU_GITHUB}/g" ./_config.yml 
   - hexo clean  #清除
   - hexo g
 
@@ -39,9 +38,6 @@ after_script:
   - hexo deploy
 
 after_success:
-  - sed -i "publish_url/${GU_GITHUB}/g" ./_config.yml 
-  - hexo clean  #清除
-  - hexo g
   - pwd
   - scp -o StrictHostKeyChecking=no -r public/*  ubuntu@$DEPLOY_IP:/var/www/html/hexo-blog/
 
@@ -51,8 +47,6 @@ branches:
 env:
  global:
    - GH_REF: github.com/luoyunchong/luoyunchong.github.io.git
-   - GU_GITHUB: https://luoyunchong.github.io
-   - GU_BLOG: http://blog.igeekfan.cn
 
 
 notifications:

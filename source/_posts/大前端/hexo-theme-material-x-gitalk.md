@@ -30,7 +30,7 @@ clientID和clientSecret如何得到：
 1. 先要有github账号， 点击 New OAuth App（后面这个链接）： https://github.com/settings/applications/new
 2. 填写信息：
 Application name 随便填，
-Homepage URL 和 Authorization callback URL 都写你的 网址，我的是：https://luoyunchong.github.io/hexo-blog/
+Homepage URL 和 Authorization callback URL 都写你的 网址，我的是：https://luoyunchong.github.io
 
 生成后，就会有clientID和clientSecret
 
