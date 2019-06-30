@@ -10,7 +10,7 @@ category:
 ---
 
 
-## Docker  学习记录
+## Docker 学习记录
 
 Docker Desktop 在windows 10下安装正常，Hyper-V也正常安装，但Hyper-V下无法打开虚拟交换机管理器，提示“尝试检索虚拟交换列表时出错”，也无法快速创建虚拟机，提示“xx异常”。事件查看器->Windows日志->系统中，Hyper-V-VmSwitch 一直提示 类似"VMSwitch driver due to error"
 
