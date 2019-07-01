@@ -66,7 +66,12 @@ awesome dotnet
 - c# 如: .net core 、asp **.net core**
 - java 如: spring boot
 
-3. 开发相关
+3. 运维、部署
+- Docker
+- Jenkins、Travis-CI
+- K8S
+
+4. 开发相关
 - 搭建个人博客 [hexo](https://hexo.io/zh-cn)+[Material X](https://github.com/xaoxuu/hexo-theme-material-x) 
 -
 
