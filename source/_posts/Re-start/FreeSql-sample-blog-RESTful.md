@@ -13,7 +13,7 @@ category:
 本文使用ASP .NET Core的WEB API，构建一个RESTful风格的接口，使用Freesql访问MySQL数据库，实现二个表的简单博客，并集成AutoMapper。
 
 接上一篇 
-- FreeSql在ASP.NTE Core WebApi中如何使用的教程]
+- FreeSql在ASP.NTE Core WebApi中如何使用的教程
 
 - 项目源码 [https://github.com/luoyunchong/dotnetcore-examples/tree/master/WebAPI-FreeSql](https://github.com/luoyunchong/dotnetcore-examples/tree/master/WebAPI-FreeSql)
 

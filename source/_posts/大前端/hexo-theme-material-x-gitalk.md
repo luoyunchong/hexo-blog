@@ -36,7 +36,7 @@ Homepage URL 和 Authorization callback URL 都写你的 网址，我的是：ht
 
 > 参考我的配置项
 
-https://github.com/luoyunchong/hexo-blog/blob/docs/_config.yml
+https://github.com/luoyunchong/hexo-blog/blob/master/_config.yml
 
 
 ~~~
