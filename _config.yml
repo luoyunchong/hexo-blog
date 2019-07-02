@@ -84,7 +84,7 @@ deploy:
   branch: 'master'
 
 
-baidu_analytics_key: 5eeea301a5246d38f8ecf29b5dcd7bbe
+baidu_analytics_key: 52fd0d7c0ebca7b25e8dbfcbb3c0a4c4
 
 gitalk: 
   clientID: 70ba179c7cf0f158ad7d
