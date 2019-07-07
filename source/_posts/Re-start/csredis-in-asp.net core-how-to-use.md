@@ -16,7 +16,7 @@ https://github.com/luoyunchong/dotnetcore-examples/tree/master/dotnet-core-redis
 * 安装并配置好redis服务，可用。
 * vs2017或vs2019或vscode
 * .net core 2.2+ sdk
-
+<!-- more -->
 创建一个. NET Core WebAPI项目
 
 想执行 . NET Core CLI命令行，要cd到csproj同级目录中

@@ -22,6 +22,8 @@ category:
 
 - https://github.com/luoyunchong/dotnetcore-examples/blob/master/dotnet-core-redis/
 
+<!-- more -->
+
 在学习之前，看到README.md上的内容不免陷入沉思，好多关键字我都不懂是什么意思，所以还是从理论入手，搜索资料，整合出入门资料，往后再讲在asp .net core中集成与使用的示例。
 
 

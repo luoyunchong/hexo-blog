@@ -22,6 +22,8 @@ category:
 - [使用 ASP.NET Core 创建 Web API](https://docs.microsoft.com/zh-cn/aspnet/core/web-api/?view=aspnetcore-2.2)
 - [Swagger/OpenAPI 生成接口文档](https://docs.microsoft.com/zh-cn/aspnet/core/tutorials/web-api-help-pages-using-swagger?view=aspnetcore-2.2)
 - [Swagger GitHub (Swashbuckle.AspNetCore)](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+
+<!-- more -->
 ### 项目准备
 - Mysql 5.6
 - Visual Studio 2019或2017、Visual Studio code
@@ -29,7 +31,7 @@ category:
 - PowerShell
 - 懂点mvc，该教程不会教你如何使用 ASP .NET Core MVC、RESTful
 
-<!-- more -->
+
 
 创建一个webapi 的项目，起名为WebAPI.FreeSql
 
