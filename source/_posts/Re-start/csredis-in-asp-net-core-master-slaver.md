@@ -1,6 +1,6 @@
 ---
 title: csredis-in-asp.net core理论实战-主从配置、哨兵模式
-date: 2019-07-07 21:09:07
+date: 2019-07-06 21:09:07
 tags:
 - Redis
 - ASP.NET Core
