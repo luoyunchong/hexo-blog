@@ -1,0 +1,45 @@
+sidebar:
+  category: 文章分类
+  tagcloud: 热门标签
+  toc: 本文目录
+  related_posts: 相关文章
+post:
+  top: 置顶
+  read_more: 阅读全文
+  sticky: 置顶
+  comments: 评论
+  comments_placeholder: 无法加载%s评论系统，请确保您的网络能够正常访问。
+  copy_button: 复制
+  copy_success: 复制成功
+  copy_failure: 复制失败
+  updated: 最后更新于
+  prev_page: 上一页
+  next_page: 下一页
+  copyright:
+    author: 本文作者
+    link: 本文链接
+    license_title: 版权声明
+    license_content: "本博客所有文章除特别声明外，均采用 %s 许可协议。转载请注明出处！"
+footer:
+  license: 'Copyright © 2019 、天上有木月博客 All Rights Reserved. by igeekfan.  |  苏ICP备16046457号  |  本站运行于  <img src=" http://igeekfan.cn/Content/Images/aliyun.png" style="height:30px;" alt=""> '
+  use: 本站开源
+  theme: 至Github
+  total_views: 总访问量为
+  total_visitors: 总访客量
+  times: 次 
+search:
+  placeholder: 搜索
+symbol:
+  comma: "，"
+  period: "。"
+  colon: "："
+  brackets_l: "（"
+  brackets_r: "）"
+# 下面这是博主相关的
+navbar:
+  home: 主页
+  blogs: 博客
+  categories: 分类
+  tags: 标签
+  archives: 归档
+  friends: 朋友
