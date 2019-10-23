@@ -7,10 +7,10 @@ links:
     icon: fas fa-handshake
     items:
     - name: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 洪卫的博客'
-      avatar: https://avatars0.githubusercontent.com/u/37791346?s=88&v=4
+      avatar: https://sunhwee.com/medias/avatars/hwsun.jpg
       url: 'https://sunhwee.com/'
-      backgroundColor: '#669929'
-      textColor: '#FFF'
+      backgroundColor: '#5e94e9'
+      textColor: '#efefef'
       tags:
       - 博客
       - 洪卫
@@ -22,6 +22,14 @@ links:
       textColor: '#FFFD'
       tags:
       - iOS
+
+    - name: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淡若清风'
+      avatar: http://www.betteralong.top/static/avatar.png
+      url: 'http://www.betteralong.top'
+      backgroundColor: '#fff'
+      textColor: '#666'
+      tags:
+      - 前端
 ---
 
 <br>
