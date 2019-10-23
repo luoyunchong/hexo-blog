@@ -24,7 +24,7 @@ links:
       - iOS
 
     - name: '<i class="fas fa-comment fa-fw" aria-hidden="true"></i> 淡若清风'
-      avatar: http://www.betteralong.top/static/avatar.png
+      avatar: http://www.betteralong.top/static/avatar08.jpg
       url: 'http://www.betteralong.top'
       backgroundColor: '#fff'
       textColor: '#666'
