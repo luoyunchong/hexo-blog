@@ -1,7 +1,6 @@
 ---
 title: lin-cms-dotnetcore的开源之路
 date: 2019-10-8 12:44:22
-top: 近期更新
 tags:
 - 开源
 - .NET Core
@@ -49,21 +48,21 @@ BaseType有一条数据，TypeCode为 字符串category、FullName文章类别�
 1. 表结构
 
 #### base_type （字典类别管理）
-字段| 类型|备注
----|---|---|
-id | int|
-type_code|varchar(50)|类别编码|
-full_name|varchar(50)|全称|
-sort_code|int|排序码|
+| 字段      | 类型        | 备注     |
+| --------- | ----------- | -------- |
+| id        | int         |
+| type_code | varchar(50) | 类别编码 |
+| full_name | varchar(50) | 全称     |
+| sort_code | int         | 排序码   |
 
 #### base_type （字典管理）
-字段| 类型|备注
----|---|---|
-id | int|
-base_type_id|int|类别id(关联base_type的id)|
-item_code|varchar(50)|字典编码|
-item_name|varchar(50)|字典全称|
-sort_code|int|排序码|
+| 字段         | 类型        | 备注                      |
+| ------------ | ----------- | ------------------------- |
+| id           | int         |
+| base_type_id | int         | 类别id(关联base_type的id) |
+| item_code    | varchar(50) | 字典编码                  |
+| item_name    | varchar(50) | 字典全称                  |
+| sort_code    | int         | 排序码                    |
 
 
 ## 前端cms
